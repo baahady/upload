@@ -8,6 +8,12 @@ class SignupController extends Controller
 {
     public function index()
     {
+        //protect signup if the user signup already
+        $session = session();
+        if($session->get('isLoggedIn')){
+            return redirect()->to('/profile');
+        }
+
         helper(['form']);
         $data = [];
         echo view('signup', $data);

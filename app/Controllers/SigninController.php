@@ -9,6 +9,12 @@ class SigninController extends Controller
 {
     public function index()
     {
+        //protect signup if the user signin already
+        $session = session();
+        if($session->get('isLoggedIn')){
+            return redirect()->to('/profile');
+        }
+
         helper(['form']);
         echo view('signin');
     } 

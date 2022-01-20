@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Cover Template · Bootstrap RTL v4.6</title>
+    <title>Uplaod - آپلود</title>
 
     
 
@@ -59,9 +59,10 @@
     <div class="inner">
       <h3 class="masthead-brand">آپلود</h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link active" href="#">خانه</a>
-        <a class="nav-link" href="#">ثبت نام</a>
-        <a class="nav-link" href="#">فایل های من</a>
+        <a class="nav-link active" href="/">خانه</a>
+        <a class="nav-link" href="/signin">ورود </a>
+        <a class="nav-link" href="/signup">ثبت نام</a>
+        <a class="nav-link" href="/profile">فایل های من</a>
       </nav>
     </div>
   </header>
