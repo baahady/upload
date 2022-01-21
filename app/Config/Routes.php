@@ -36,6 +36,7 @@ $routes->get('/signup', 'SignupController::index');
 $routes->get('/signin', 'SigninController::index');
 $routes->get('/profile', 'ProfileController::index',['filter' => 'authGuard']);
 $routes->get('/logout', 'LogoutController::index');
+$routes->post('upload','UploadController::index');
 
 
 /*

@@ -71,15 +71,20 @@
     <h1 class="cover-heading">آپلود فایل</h1>
     <p class="lead">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
 
+    <?php foreach ($errors as $error): ?>
+    <div class="alert alert-warning">
+    <li><?= esc($error) ?></li>
+    </div>
+    <?php endforeach ?>
 
     <div class="d-flex justify-content-center">
-    <form class="form-inline">
-    <div class="form-group mx-sm-3 mb-2">
-        <label for="inputPassword2" class="sr-only">Password</label>
-        <input type="file" class="form-control" id="exampleFormControlFile1">
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">آپلود</button>
-    </form>
+      <?= form_open_multipart('upload',['class'=>'form-inline']) ?>
+      <div class="form-group mx-sm-3 mb-2">
+          <label for="inputPassword2" class="sr-only">Password</label>
+          <input type="file" name="userfile" class="form-control" id="exampleFormControlFile1">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">آپلود</button>
+      </form>
     </div>
     
 </main>
