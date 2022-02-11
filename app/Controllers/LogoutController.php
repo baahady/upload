@@ -1,10 +1,10 @@
 <?php 
 
 namespace App\Controllers;  
-use CodeIgniter\Controller;
 
+use App\Controllers\BaseController;
   
-class LogoutController extends Controller
+class LogoutController extends BaseController
 {
     public function index()
     {

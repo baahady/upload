@@ -1,20 +1,15 @@
 <?php 
 
 namespace App\Controllers;  
-use CodeIgniter\Controller;
-use App\Models\UserModel;
-  
 
-class SigninController extends Controller
+use App\Controllers\BaseController;
+
+use App\Models\UserModel;
+
+class SigninController extends BaseController
 {
     public function index()
     {
-        //protect signup if the user signin already
-        $session = session();
-        if($session->get('isLoggedIn')){
-            return redirect()->to('/profile');
-        }
-
         helper(['form']);
         echo view('signin');
     } 
@@ -38,11 +33,17 @@ class SigninController extends Controller
                     'id' => $data['id'],
                     'name' => $data['name'],
                     'email' => $data['email'],
+                    'role' => $data['role'],
                     'isLoggedIn' => TRUE
                 ];
 
                 $session->set($ses_data);
-                return redirect()->to('/profile');
+                //redirect to user Dashboard
+                if($data['role'] == 'admin'){
+                    return redirect()->to('/admin');
+                }elseif($data['role'] == 'user'){
+                    return redirect()->to('/user');
+                }
             
             }else{
                 $session->setFlashdata('msg', 'Password is incorrect.');

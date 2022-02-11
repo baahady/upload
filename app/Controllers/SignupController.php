@@ -1,19 +1,13 @@
 <?php 
 
 namespace App\Controllers;  
-use CodeIgniter\Controller;
+use App\Controllers\BaseController;
 use App\Models\UserModel;
   
-class SignupController extends Controller
+class SignupController extends BaseController
 {
     public function index()
     {
-        //protect signup if the user signup already
-        $session = session();
-        if($session->get('isLoggedIn')){
-            return redirect()->to('/profile');
-        }
-
         helper(['form']);
         $data = [];
         echo view('signup', $data);
@@ -35,6 +29,7 @@ class SignupController extends Controller
             $data = [
                 'name'     => $this->request->getVar('name'),
                 'email'    => $this->request->getVar('email'),
+                'role'     => 'user',
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
 

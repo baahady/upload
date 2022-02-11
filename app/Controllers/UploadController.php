@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use CodeIgniter\Files\File;
 
+use App\Controllers\BaseController;
+
 class UploadController extends BaseController
 {
     protected $helpers = ['form'];

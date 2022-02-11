@@ -62,7 +62,7 @@
         <a class="nav-link active" href="/">خانه</a>
         <a class="nav-link" href="/signin">ورود </a>
         <a class="nav-link" href="/signup">ثبت نام</a>
-        <a class="nav-link" href="/profile">فایل های من</a>
+        <a class="nav-link" href="/user">فایل های من</a>
       </nav>
     </div>
   </header>
