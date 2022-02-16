@@ -8,7 +8,6 @@ class UserController extends BaseController
 {
     public function index()
     {
-        $session = session();
-        echo "Hello : ".$session->get('name');
+        return view('user/main');
     }
 }

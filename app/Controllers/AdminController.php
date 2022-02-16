@@ -15,8 +15,7 @@ class AdminController extends BaseController
     }
 
     public function index()
-    {
-        $session = session();
-        echo "Hello Admin : ".$session->get('name');    
+    { 
+        return view('admin/main');
     }
 }
