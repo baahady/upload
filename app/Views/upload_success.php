@@ -6,13 +6,12 @@
 <body>
 
 <h3>Your file was successfully uploaded!</h3>
-
 <ul>
-    <li>name: <?= esc($uploaded_flleinfo->getBasename()) ?></li>
-    <li>size: <?= esc($uploaded_flleinfo->getSizeByUnit('kb')) ?> KB</li>
-    <li>extension: <?= esc($uploaded_flleinfo->guessExtension()) ?></li>
+    <li>name: <?php echo $name; ?></li>
+    <li>baseName: <?php echo $baseName; ?></li>
+    <li>size: <?php echo $size; ?></li>
+    <li>type: <?php echo $type; ?></li>
 </ul>
-
 <p><?= anchor('/', 'Upload Another File!') ?></p>
 
 </body>

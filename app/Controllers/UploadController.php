@@ -6,6 +6,8 @@ use CodeIgniter\Files\File;
 
 use App\Controllers\BaseController;
 
+use App\Models\FileModel;
+
 class UploadController extends BaseController
 {
     protected $helpers = ['form'];
@@ -28,18 +30,37 @@ class UploadController extends BaseController
             return view('home', $data);
         }
 
-        $img = $this->request->getFile('userfile');
+        // Grab the file by name given in HTML form
+        $file = $this->request->getFile('userfile');
+        //get the real type of the file
+        $type = $file->getMimeType();
 
-        if (! $img->hasMoved()) {
-            $filepath = WRITEPATH . 'uploads/' . $img->store();
+        // Generate a new secure name
+        $name = $file->getRandomName();
 
-            $data = ['uploaded_flleinfo' => new File($filepath)];
+        // Move the file to the directory
+        $file->move('uploads', $name);
 
-            return view('upload_success', $data);
-        } else {
-            $data = ['errors' => 'The file has already been moved.'];
+        //file model
+        $fileModel = new FileModel;
 
-            return view('upload_form', $data);
-        }
+        //user id
+        $id = session()->get('id');
+
+        //insert uploaded file Data to the DB
+        $fileModel->save([
+            'name' => $name,
+            'type' => $type,
+            'owner' => $id
+        ]);
+
+        $fdata = [
+            'name' => $name,
+            'baseName' => $file->getBasename(),
+            'size' => $file->getSizeByUnit('kb'),
+            'type' => $type,
+        ];
+
+        return view('upload_success', $fdata);
     }
 }
