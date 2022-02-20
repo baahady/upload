@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FileModel extends Model
+class UploadModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'files';

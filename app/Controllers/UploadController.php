@@ -6,7 +6,7 @@ use CodeIgniter\Files\File;
 
 use App\Controllers\BaseController;
 
-use App\Models\FileModel;
+use App\Models\UploadModel;
 
 class UploadController extends BaseController
 {
@@ -42,13 +42,16 @@ class UploadController extends BaseController
         $file->move('uploads', $name);
 
         //file model
-        $fileModel = new FileModel;
+        $uploadModel = new UploadModel;
 
         //user id
         $id = session()->get('id');
+        if(!$id){
+            $id = "0";
+        }
 
         //insert uploaded file Data to the DB
-        $fileModel->save([
+        $uploadModel->save([
             'name' => $name,
             'type' => $type,
             'owner' => $id
