@@ -1,6 +1,7 @@
 <?php 
 
 namespace App\Controllers;  
+use App\Libraries\jdf;
 
 use App\Controllers\BaseController;
 
@@ -8,12 +9,15 @@ use App\Models\UserFileModel;
 
 class UserController extends BaseController
 {
+    public function __construct(){
+        
+    }
     public function index()
     {
         $model = new UserFileModel;
         $res = $model->userFile();
         $data = [
-            'files' => $res
+            'files' => $res,
         ];
         return view('user/main',$data);
     }
