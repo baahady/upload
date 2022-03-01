@@ -33,17 +33,15 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/signup', 'SignupController::index',['filter' => 'noauth']);
-
 $routes->get('/signin', 'SigninController::index',['filter' => 'noauth']);
 $routes->post('/signin', 'SigninController::loginAuth');
-
-$routes->get('/user', 'UserController::index',['filter' => 'authGuard']);
-
 $routes->get('/logout', 'LogoutController::index');
 $routes->post('upload','UploadController::index');
-
+//user
+$routes->get('/user', 'UserController::index',['filter' => 'authGuard']);
 //Admin
-$routes->get('/admin','AdminController::index',['filter' => 'authGuard']);
+$routes->get('/admin','Admin/AdminController::index',['filter' => 'authGuard']);
+$routes->get('/allusers','Admin/UserController::index',['filter' => 'authGuard']);
 
 
 /*

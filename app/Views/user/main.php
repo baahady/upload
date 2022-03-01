@@ -22,7 +22,7 @@
                 ?>
                   <tr>
                     <th scope="row"><?php echo $id ?></th>
-                    <td><img src="/uploads/<?php echo $val['name']; ?>" class="uploaded-image"></td>
+                    <td><img src="/uploads/<?php echo $val['fileName']; ?>" class="uploaded-image"></td>
                     <td><?php echo $val['type']; ?></td>
                     <td><?php echo $this->jdf->jdate("تاریخ:Y/m/d زمان:H:i:s", strtotime($val['created_at'])); ?></td>
                     <?php $id++;?>

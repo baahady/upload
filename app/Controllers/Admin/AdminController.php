@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+
+use App\Models\UserFileModel;
 
 class AdminController extends BaseController
 {
@@ -16,6 +18,13 @@ class AdminController extends BaseController
 
     public function index()
     { 
-        return view('admin/main');
+        $model = new UserFileModel;
+        $res = $model->allUserFile();
+
+        $data = [
+            'files' => $res,
+        ];
+
+        return view('admin/main',$data);
     }
 }

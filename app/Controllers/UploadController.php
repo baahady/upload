@@ -52,13 +52,13 @@ class UploadController extends BaseController
 
         //insert uploaded file Data to the DB
         $uploadModel->save([
-            'name' => $name,
+            'fileName' => $name,
             'type' => $type,
             'owner' => $id
         ]);
 
         $fdata = [
-            'name' => $name,
+            'fileName' => $name,
             'baseName' => $file->getBasename(),
             'size' => $file->getSizeByUnit('kb'),
             'type' => $type,

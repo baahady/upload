@@ -9,9 +9,6 @@ use App\Models\UserFileModel;
 
 class UserController extends BaseController
 {
-    public function __construct(){
-        
-    }
     public function index()
     {
         $model = new UserFileModel;
