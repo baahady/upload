@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UploadModel extends Model
+class AllowedTypeModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'files';
+    protected $table            = 'allowedTypes';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -15,9 +15,9 @@ class UploadModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'fileName',
-        'type',
-        'owner'
+        'allowedTypes',
+        'created_at',
+        'updated_at'
     ];
 
     // Dates

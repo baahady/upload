@@ -7,7 +7,7 @@
 
 <h3>Your file was successfully uploaded!</h3>
 <ul>
-    <li>name: <?php echo $name; ?></li>
+    <li>name: <?php echo $fileName; ?></li>
     <li>baseName: <?php echo $baseName; ?></li>
     <li>size: <?php echo $size; ?></li>
     <li>type: <?php echo $type; ?></li>

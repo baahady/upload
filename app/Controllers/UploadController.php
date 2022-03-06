@@ -18,11 +18,7 @@ class UploadController extends BaseController
             'userfile' => [
                 'label' => 'Image File',
                 'rules' => 'uploaded[userfile]'
-                    . '|is_image[userfile]'
-                    . '|mime_in[userfile,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
-                    . '|max_size[userfile,100]'
-                    . '|max_dims[userfile,1024,768]',
-            ],
+                . '|ext_in[userfile,jpg]'                 ],
         ];
         if (! $this->validate($validationRule)) {
             $data = ['errors' => $this->validator->getErrors()];

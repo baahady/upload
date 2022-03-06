@@ -42,6 +42,7 @@ $routes->get('/user', 'UserController::index',['filter' => 'authGuard']);
 //Admin
 $routes->get('/admin','Admin/AdminController::index',['filter' => 'authGuard']);
 $routes->get('/allusers','Admin/UserController::index',['filter' => 'authGuard']);
+$routes->get('/allowedType','Admin/FileController::index',['filter'=>'authGuard']);
 
 
 /*
