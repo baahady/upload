@@ -8,17 +8,24 @@ use App\Controllers\BaseController;
 
 use App\Models\UploadModel;
 
+use App\Models\AllowedTypeModel;
+
 class UploadController extends BaseController
 {
     protected $helpers = ['form'];
 
     public function index()
     {
+        $model = new AllowedTypeModel;
+        $types = $model->first();
+        $allowed = $types['allowedTypes'];
+
         $validationRule = [
             'userfile' => [
                 'label' => 'Image File',
                 'rules' => 'uploaded[userfile]'
-                . '|ext_in[userfile,jpg]'                 ],
+                . "|ext_in[userfile,$allowed]"              
+            ],
         ];
         if (! $this->validate($validationRule)) {
             $data = ['errors' => $this->validator->getErrors()];

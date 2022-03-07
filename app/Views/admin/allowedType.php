@@ -7,13 +7,20 @@
         </div>
     <div class="row">
         <div class="col-md-5">
-            <form>
+
+                <?php if(isset($validation)):?>
+                <div class="alert alert-warning">
+                   <?= $validation->listErrors() ?>
+                </div>
+                <?php endif;?>
+                
+            <form action="<?php echo base_url(); ?>/allowedType" method="post"> 
             <div class="form-group">
                 <label for="exampleInputEmail1">فرمت فایل های قابل آپلود </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <p class="form-text">مثال: jpg,jpeg,png,mp4,</p>
+                <textarea type="text" name="allowedTypes" class="form-control"><?php echo $types['allowedTypes']; ?></textarea>
+                <p class="form-text">مثال: jpg,jpeg,png,mp4 - (با کاما «,» از هم جدا کنید)</p>
             </div>
-            <button type="submit" class="btn btn-primary">ثبت</button>
+            <button type="submit" class="btn btn-primary">ویرایش</button>
             </form>
         </div>
     </div>
